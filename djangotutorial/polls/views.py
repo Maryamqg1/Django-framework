@@ -2,24 +2,32 @@ from django.http import HttpResponse
 from .models import Question, Choice , Grade
 from django.shortcuts import render
 from django.template.response import TemplateResponse
-from django.template import loader
+from django.http import Http404
+#from django.template import loader
 
 # Create your views here.
 def index(request):
     latest_question_list = Question.objects.order_by("-pub_date")[:3]
-    template = loader.get_template('polls/index.html')
-    context = {"latest_question_list": latest_question_list}
-    return HttpResponse(template.render(context, request))
+    #template = loader.get_template('polls/index.html')
+    #context = {"latest_question_list": latest_question_list}
+    #return HttpResponse(template.render(context, request))
+    return render(request, 'polls/index.html',{'latest_question_list': latest_question_list})
     #output = ", ".join([q.question_text for q in latest_question_list])
     #return HttpResponse(output)
     #return HttpResponse('Hello, world. You are at the polls index.')
 
-def detail(request):
+def choice(request):
     last_question = Question.objects.last()
     list_of_choices =last_question.choice.all()
     template = loader.get_template('polls/choice.html')
     return HttpResponse(template.render({'list_of_choices':list_of_choices},request))
     
+def details (request, question_id):
+    try:
+        question = Question.objects.get(pk=question_id) 
+    except Question.DoesNotExist:
+        raise Http404 ('This Question does not exist')
+    return render(request, 'polls/details.html',{'question':question})   
 
 def mission(request):
     return HttpResponse('Mission accomplished.')
