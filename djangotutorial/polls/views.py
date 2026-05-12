@@ -3,7 +3,7 @@ from .models import Question, Choice , Grade
 from django.shortcuts import render
 from django.template.response import TemplateResponse
 from django.http import Http404
-#from django.template import loader
+from django.template import loader
 
 # Create your views here.
 def index(request):
