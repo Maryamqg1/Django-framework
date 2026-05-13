@@ -1,4 +1,6 @@
-{% if latest_question_list %}
+{{ odds}}
+
+{% comment %} {% if latest_question_list %}
     <ul>
     {% for ch in list_of_choices %}
         <li><a href="/polls/{{ question.id }}/">Choice_Text{{ ch.choice_text }}. Votes {{ch.votes}}.</a></li>
@@ -6,4 +8,4 @@
     </ul>
 {% else %}
     <p>No choice is available.</p>
-{% endif %}
+{% endif %} {% endcomment %}
