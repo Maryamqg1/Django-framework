@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from .models import Question, Choice , Grade
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.template.response import TemplateResponse
 from django.http import Http404
 from django.template import loader
@@ -18,26 +18,31 @@ def index(request):
 
 def choice(request):
     #All = Question.objects.all()
-    choiices = Choice.objects.all()
-    odds = [x for x in choiices if x.id %2 != 0]
-    return render(request, 'polls/choice.html', ({'odds': odds}))
+    #choices = Choice.objects.all()
+    #odds = [x for x in choices if x.id %2 != 0]
+    #filtered_odds = filter(lambda x: x.id %2 != 0, choices) #didn't execute properly
+    #return render(request, 'polls/choice.html', ({'odds': odds})) #, 'filtered_odds': filtered_odds
     # for odd_id in All:
     #     if odd_id.id %2 !=0:
     #         return odd_id
     #     else:
     #         print ('Unacceptable id no.')
     #odd_id = Question.objects.filter(id__exact = 1)
-    #list_of_choices =last_question.choice.all()
-    #template = loader.get_template('polls/choice.html')
+    latest_question_list = Question.objects.last()
+    list_of_choices =latest_question_list.choice.all()
+    template = loader.get_template('polls/choice.html')
     
-    #return HttpResponse(template.render({'list_of_choices': odd_id},request))
+    return HttpResponse(template.render({'list_of_choices': list_of_choices,
+                                         'latest_question_list': latest_question_list},request))
     
 def details (request, question_id):
-    try:
-        question = Question.objects.get(pk=question_id) 
-    except Question.DoesNotExist:
-        raise Http404 ('This Question does not exist')
-    return render(request, 'polls/details.html',{'question':question})   
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'polls/details.html', {'question': question})
+    # try:
+    #     question = Question.objects.get(pk=question_id) 
+    # except Question.DoesNotExist:
+    #     raise Http404 ('This Question does not exist')
+    # return render(request, 'polls/details.html',{'question':question})   
 
 def mission(request):
     return HttpResponse('Mission accomplished.')
