@@ -20,6 +20,7 @@ def choice(request):
     #All = Question.objects.all()
     choiices = Choice.objects.all()
     odds = [x for x in choiices if x.id %2 != 0]
+    return render(request, 'polls/choice.html', ({'odds': odds}))
     # for odd_id in All:
     #     if odd_id.id %2 !=0:
     #         return odd_id
@@ -27,8 +28,8 @@ def choice(request):
     #         print ('Unacceptable id no.')
     #odd_id = Question.objects.filter(id__exact = 1)
     #list_of_choices =last_question.choice.all()
-    template = loader.get_template('polls/choice.html')
-    return render(request, 'polls/choice.html', ({'odds': odds}))
+    #template = loader.get_template('polls/choice.html')
+    
     #return HttpResponse(template.render({'list_of_choices': odd_id},request))
     
 def details (request, question_id):
