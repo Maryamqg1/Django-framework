@@ -1,0 +1,22 @@
+{% extends 'polls/base.html' %}
+
+{% block title %}Update Poll | Apex{% endblock %}
+
+{% block content %}
+<section class="section card-panel form-page">
+    <div class="card-header">
+        <span class="eyebrow">Update poll</span>
+        <h1>Edit your question</h1>
+        <p class="lead">Refine your poll text with a polished editing interface.</p>
+    </div>
+
+    <form method="post" class="form-card">
+        {% csrf_token %}
+        <div class="form-field">
+            {{ form.question.label_tag }}
+            {{ form.question }}
+        </div>
+        <button class="button button-primary" type="submit">Update poll</button>
+    </form>
+</section>
+{% endblock %}

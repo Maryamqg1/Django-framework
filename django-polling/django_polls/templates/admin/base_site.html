@@ -1,0 +1,21 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block extrahead %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'polls/css/admin_custom.css' %}">
+{% endblock %}
+
+{% block branding %}
+<div class="premium-admin-branding">
+  <div class="brand-mark">P</div>
+  <div class="brand-copy">
+    <div class="brand-title"><a href="{% url 'admin:index' %}">POLLING DASHBOARD</a></div>
+    <div class="brand-tag">Premium admin experience</div>
+  </div>
+</div>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

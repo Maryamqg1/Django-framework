@@ -1,0 +1,382 @@
+:root {
+    color-scheme: dark;
+    --admin-bg: #06101f;
+    --admin-surface: rgba(10, 17, 31, 0.94);
+    --admin-surface-soft: rgba(255, 255, 255, 0.06);
+    --admin-surface-strong: rgba(255, 255, 255, 0.12);
+    --admin-text: #f4f7ff;
+    --admin-muted: #94abc9;
+    --admin-accent: #7dd3fc;
+    --admin-accent-strong: #38bdf8;
+    --admin-accent-warm: #fbbf24;
+    --admin-border: rgba(255, 255, 255, 0.12);
+    --admin-shadow: 0 28px 70px rgba(0, 0, 0, 0.32);
+    --admin-radius: 20px;
+}
+
+html {
+    min-height: 100%;
+    background: radial-gradient(circle at 12% 6%, rgba(125, 211, 252, 0.16), transparent 20%),
+                radial-gradient(circle at 90% 14%, rgba(251, 191, 36, 0.12), transparent 16%),
+                linear-gradient(180deg, #07101f 0%, #040813 100%);
+}
+
+body {
+    color: var(--admin-text);
+    background: transparent;
+    font-family: Inter, "Segoe UI", Roboto, sans-serif;
+}
+
+#header {
+    background: linear-gradient(135deg, rgba(7, 16, 32, 0.97), rgba(14, 25, 46, 0.9));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+#branding {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.15rem 0.65rem;
+}
+
+.premium-admin-branding {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.premium-admin-branding .brand-mark {
+    width: 3rem;
+    height: 3rem;
+    min-width: 3rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #07101d;
+    background: linear-gradient(135deg, var(--admin-accent-warm), var(--admin-accent));
+    font-weight: 900;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.25);
+}
+
+.premium-admin-branding .brand-copy {
+    display: grid;
+    gap: 0.16rem;
+}
+
+.premium-admin-branding .brand-title a {
+    color: var(--admin-text);
+    font-size: 1.12rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.premium-admin-branding .brand-tag {
+    color: var(--admin-muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+#site-name,
+#user-tools,
+#breadcrumbs,
+#branding + #user-tools {
+    color: var(--admin-text);
+}
+
+#site-name a,
+#user-tools a,
+#breadcrumbs a {
+    color: var(--admin-text);
+}
+
+#user-tools a:hover,
+#site-name a:hover,
+#breadcrumbs a:hover {
+    color: var(--admin-accent);
+}
+
+#content {
+    padding: 2rem 2rem 3rem;
+}
+
+#content-main,
+.dashboard,
+.app-list,
+.module,
+.fieldset,
+.inline-related,
+#changelist-form,
+#result_list,
+.paginator {
+    background: rgba(8, 14, 26, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--admin-radius);
+    box-shadow: var(--admin-shadow);
+}
+
+.module {
+    padding: 1.35rem 1.55rem;
+}
+
+#content-main > .module,
+.dashboard .module,
+.app-list .module {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#content-main h1,
+.module h2,
+.dashboard h2,
+fieldset h2,
+.inline-related h2,
+.paginator {
+    color: var(--admin-text);
+}
+
+.module caption,
+.fieldset legend,
+.inline-related h2 {
+    color: var(--admin-accent);
+}
+
+#main,
+.dashboard,
+.app-list {
+    padding: 1.15rem;
+}
+
+.model-admin,
+.object-tools,
+.submit-row {
+    margin-top: 1rem;
+}
+
+fieldset.module {
+    background: rgba(10, 18, 35, 0.84);
+}
+
+.module .submit-row input,
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+.actions input,
+.actions select,
+select,
+input,
+textarea,
+.vTextField,
+.vLargeTextField,
+.vURLField,
+.vManyToManyRawIdAdminField,
+.vDateField,
+.vTimeField {
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--admin-text);
+    transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.module .submit-row input:hover,
+button:hover,
+input[type="submit"]:hover,
+.actions input:hover,
+.actions select:hover,
+select:hover,
+input:hover,
+textarea:hover,
+.vTextField:hover,
+.vLargeTextField:hover,
+.vURLField:hover,
+.vManyToManyRawIdAdminField:hover,
+.vDateField:hover,
+.vTimeField:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(125, 211, 252, 0.35);
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.vTextField:focus,
+.vLargeTextField:focus,
+.vURLField:focus,
+.vManyToManyRawIdAdminField:focus,
+.vDateField:focus,
+.vTimeField:focus {
+    outline: none;
+    border-color: rgba(125, 211, 252, 0.8);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.18);
+}
+
+table#result_list,
+table#result_list th,
+table#result_list td,
+table.results {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+table#result_list th,
+table#result_list td,
+.tabular td,
+.tabular th {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 0.85rem 0.8rem;
+}
+
+th {
+    color: var(--admin-accent);
+}
+
+table#result_list tbody tr:hover {
+    background: rgba(59, 130, 246, 0.09);
+}
+
+.form-row,
+.filtered,
+.related-widget-wrapper,
+.inline-related .module,
+.selector {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 0.9rem 1rem;
+}
+
+.field-box {
+    padding: 0.45rem 0;
+}
+
+.field-box label,
+.form-row label {
+    color: var(--admin-text);
+}
+
+.help,
+.helptext {
+    color: var(--admin-muted);
+    font-size: 0.9rem;
+}
+
+.errornote,
+.system-message,
+.warning {
+    background: rgba(251, 191, 36, 0.14);
+    color: #ffd166;
+    border: 1px solid rgba(251, 191, 36, 0.28);
+    border-radius: 14px;
+    padding: 0.9rem 1rem;
+}
+
+.messagelist .success,
+.messagelist .info {
+    background: rgba(56, 189, 248, 0.14);
+    border-color: rgba(56, 189, 248, 0.26);
+    color: #bdefff;
+}
+
+.sidebar,
+#nav-sidebar,
+#nav-tools,
+#user-tools {
+    color: var(--admin-text);
+}
+
+#nav-sidebar,
+#nav-tools,
+#user-tools {
+    background: transparent;
+}
+
+.module .actions,
+.paginator,
+.submit-row,
+.object-tools {
+    border-radius: 14px;
+    padding: 0.85rem 1rem;
+}
+
+.paginator {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+#footer {
+    color: var(--admin-muted);
+}
+
+#footer a:hover {
+    color: var(--admin-accent);
+}
+
+a.button,
+input.button,
+button,
+input[type="submit"] {
+    border: 1px solid transparent;
+    background: linear-gradient(135deg, rgba(125, 211, 252, 0.95), rgba(59, 130, 246, 0.92));
+    color: #04101a;
+    font-weight: 700;
+    box-shadow: 0 14px 30px rgba(56, 189, 248, 0.16);
+}
+
+a.button:hover,
+button:hover,
+input[type="submit"]:hover {
+    transform: translateY(-1px);
+    background: linear-gradient(135deg, rgba(56, 189, 248, 1), rgba(14, 165, 233, 0.95));
+}
+
+.deletelink {
+    color: var(--admin-accent-warm);
+}
+
+.deletelink:hover {
+    color: #ffd166;
+}
+
+.inline-group,
+.related-widget-wrapper,
+fieldset.module {
+    border-radius: 20px;
+}
+
+fieldset.module legend,
+.module caption {
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+}
+
+#content-main .module:nth-child(odd) {
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.login {
+    background: rgba(6, 12, 22, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: var(--admin-shadow);
+    border-radius: 24px;
+    padding: 2rem;
+}
+
+.login .submit-row {
+    padding: 0;
+    margin-top: 1.2rem;
+}
+
+@media (max-width: 980px) {
+    #branding {
+        flex-wrap: wrap;
+    }
+    .premium-admin-branding {
+        width: 100%;
+    }
+    #content {
+        padding: 1.25rem;
+    }
+}

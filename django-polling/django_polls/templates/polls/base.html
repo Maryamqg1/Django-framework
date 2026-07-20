@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Apex Polls{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'polls/css/style.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <div class="brand">
+                <span class="brand-mark">A</span>
+                <div>
+                    <p class="brand-name">Apex Polls</p>
+                    <p class="brand-tag">Curated polling for modern audiences</p>
+                </div>
+            </div>
+            <nav class="site-nav">
+                <a href="{% url 'polls:home' %}">Home</a>
+                <a href="{% url 'polls:index' %}">Polls</a>
+                <a href="{% url 'polls:create' %}">Create</a>
+                <a href="{% url 'polls:terms' %}">Terms</a>
+            </nav>
+        </header>
+
+        <main class="page-content">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="site-footer">
+            <p>Modern interactions, elegant presentation, effortless polling.</p>
+        </footer>
+    </div>
+<script src='{% static 'polls/js/script.js' %}'></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>

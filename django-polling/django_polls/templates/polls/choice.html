@@ -1,0 +1,30 @@
+{% extends 'polls/base.html' %}
+
+{% block title %}Choice Details | Apex{% endblock %}
+
+{% block content %}
+<section class="section card-panel">
+    <div class="card-header">
+        <span class="eyebrow">Choice analytics</span>
+        {% if question %}
+            <h1>{{ question.question_text }}</h1>
+        {% else %}
+            <h1>Choice details</h1>
+        {% endif %}
+    </div>
+
+    {% if question %}
+    <div class="result-grid">
+        {% for ch in list_of_choices %}
+        <article class="stats-card">
+            <p class="stats-title">{{ ch.choice_text }}</p>
+            <p class="stats-value">{{ ch.votes }} vote{{ ch.votes|pluralize }}</p>
+        </article>
+        {% endfor %}
+    </div>
+    <a class="button button-secondary" href="{% url 'polls:index' %}">Back to all polls</a>
+    {% else %}
+    <p class="empty-copy">No choice information is available.</p>
+    {% endif %}
+</section>
+{% endblock %}

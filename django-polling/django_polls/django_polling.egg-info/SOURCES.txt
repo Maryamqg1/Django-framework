@@ -1,0 +1,8 @@
+LICENSE
+README.rst
+pyproject.toml
+django_polling.egg-info/PKG-INFO
+django_polling.egg-info/SOURCES.txt
+django_polling.egg-info/dependency_links.txt
+django_polling.egg-info/requires.txt
+django_polling.egg-info/top_level.txt

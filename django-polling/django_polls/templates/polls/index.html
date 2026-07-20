@@ -1,0 +1,28 @@
+{% extends 'polls/base.html' %}
+
+{% block title %}Polls | Apex{% endblock %}
+
+{% block content %}
+<section class="section card-panel">
+    <div class="card-header">
+        <span class="eyebrow">Featured polling</span>
+        <h1>Current questions</h1>
+        <p class="lead">Choose a poll and make your voice count with a smooth, premium experience.</p>
+    </div>
+
+    {% if latest_question_list %}
+    <div class="content-panel">
+        <ul class="poll-list">
+            {% for question in latest_question_list %}
+            <li><a href="{% url 'polls:detail' question.pk %}">{{ question.question_text }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+    <div class="content-panel empty-panel">
+        <p class="empty-copy">No poll questions are available yet. Create a new poll to begin.</p>
+        <a href="{% url 'polls:create' %}" class="button button-primary">Create a poll</a>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

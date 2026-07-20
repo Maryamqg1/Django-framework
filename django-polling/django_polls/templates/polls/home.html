@@ -1,0 +1,93 @@
+{% extends 'polls/base.html' %}
+
+{% block title %}Welcome to Polling Dashboard{% endblock %}
+
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'polls/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <!-- Main Content -->
+    <div class="hero-content">
+        <span class="eyebrow">Welcome</span>
+        <h1>Welcome to the Polling Dashboard</h1>
+        <p class="lead">Discover a more refined polling experience with fast results, elegant presentation, and premium interaction design.</p>
+        <div class="button-row">
+            <a class="button button-primary" href="{% url 'polls:index' %}">Browse Polls</a>
+            <a class="button button-secondary" href="{% url 'polls:create' %}">Create Poll</a>
+        </div>
+        <ul class="feature-list">
+            <li>Luxurious dark interface with premium gradients</li>
+            <li>Fast, elegant voting for every audience</li>
+            <li>Beautiful results with real-time analytics</li>
+        </ul>
+    </div>
+
+    <!-- Auth Section -->
+    <div class="auth-section">
+        <!-- Sign Up Card -->
+        <div class="auth-card signup-card">
+            <span class="auth-icon">✨</span>
+            <h3>Create an account</h3>
+            <p>Join our community to unlock all features and start creating amazing polls today.</p>
+            <a href="{% url 'polls:register' %}"><span>Sign Up</span></a>
+        </div>
+
+        <!-- Sign In Card -->
+        <div class="auth-card signin-card">
+            <span class="auth-icon">🔐</span>
+            <h3>Already have an account?</h3>
+            <p>Sign in to access your polls, create new ones, and manage your voting history.</p>
+            <a href="{% url 'admin:login' %}"><span>Sign In</span></a>
+        </div>
+
+    </div>
+</section>
+<!-- User Comments / Testimonials -->
+<section class="comments-section">
+  <div class="comments-inner">
+    <h2 class="comments-title">What our users say</h2>
+    <p class="comments-sub">Real feedback from community members using Apex Polls.</p>
+
+    <div class="comments-grid">
+      <article class="comment-card">
+        <div class="avatar">AH</div>
+        <div class="comment-body">
+          <div class="comment-meta">
+            <span class="comment-author">Aisha H.</span>
+            <span class="comment-time">· 2 days ago</span>
+            <span class="stars">★★★★★</span>
+          </div>
+          <p>Beautiful interface and quick results — perfect for sharing with my audience.</p>
+        </div>
+      </article>
+
+      <article class="comment-card">
+        <div class="avatar">MR</div>
+        <div class="comment-body">
+          <div class="comment-meta">
+            <span class="comment-author">Marcus R.</span>
+            <span class="comment-time">· 1 week ago</span>
+            <span class="stars">★★★★☆</span>
+          </div>
+          <p>Creating polls is effortless. The premium visuals make presentations look polished.</p>
+        </div>
+      </article>
+
+      <article class="comment-card">
+        <div class="avatar">LS</div>
+        <div class="comment-body">
+          <div class="comment-meta">
+            <span class="comment-author">Lina S.</span>
+            <span class="comment-time">· 3 weeks ago</span>
+            <span class="stars">★★★★☆</span>
+          </div>
+          <p>Fast and reliable — love the dark theme. Would like more export options.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+{% endblock %}

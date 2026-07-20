@@ -1,0 +1,23 @@
+{% extends 'polls/base.html' %}
+
+{% block title %}Results | Apex{% endblock %}
+
+{% block content %}
+<section class="section card-panel">
+    <div class="card-header">
+        <span class="eyebrow">Poll results</span>
+        <h1>{{ question.question_text }}</h1>
+    </div>
+
+    <div class="result-grid">
+        {% for choice in question.choice.all %}
+        <article class="result-card">
+            <p class="result-label">{{ choice.choice_text }}</p>
+            <p class="result-value">{{ choice.votes }} vote{{ choice.votes|pluralize }}</p>
+        </article>
+        {% endfor %}
+    </div>
+
+    <a class="button button-secondary" href="{% url 'polls:detail' question.id %}">Vote again</a>
+</section>
+{% endblock %}

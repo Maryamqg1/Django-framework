@@ -1,0 +1,30 @@
+{% extends 'polls/base.html' %}
+
+{% block title %}Vote | Apex{% endblock %}
+
+{% block content %}
+<section class="section card-panel">
+    <div class="card-header">
+        <span class="eyebrow">Vote now</span>
+        <h1>{{ question.question_text }}</h1>
+        <p class="lead">Select the option that best represents your opinion.</p>
+    </div>
+
+    {% if error_message %}
+    <div class="alert">{{ error_message }}</div>
+    {% endif %}
+
+    <form action="{% url 'polls:vote' question.id %}" method="post" class="vote-form">
+        {% csrf_token %}
+        <fieldset class="choice-grid">
+            {% for choice in question.choice.all %}
+            <label for="choice{{ forloop.counter }}" class="choice-tile">
+                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                <span>{{ choice.choice_text }}</span>
+            </label>
+            {% endfor %}
+        </fieldset>
+        <button class="button button-primary" type="submit">Cast my vote</button>
+    </form>
+</section>
+{% endblock %}

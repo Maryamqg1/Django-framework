@@ -1,0 +1,22 @@
+{% extends 'polls/base.html' %}
+
+{% block title %}Create Poll | Apex{% endblock %}
+
+{% block content %}
+<section class="section card-panel form-page">
+    <div class="card-header">
+        <span class="eyebrow">Create poll</span>
+        <h1>Launch a new question</h1>
+        <p class="lead">Write a clear question and share it with your audience instantly.</p>
+    </div>
+
+    <form method="post" class="form-card">
+        {% csrf_token %}
+        <div class="form-field">
+            {{ form.question.label_tag }}
+            {{ form.question }}
+        </div>
+        <button class="button button-primary" type="submit">Create poll</button>
+    </form>
+</section>
+{% endblock %}
